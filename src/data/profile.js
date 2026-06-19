@@ -6,8 +6,8 @@ export const profile = {
   phone: '+92 318 4636679',
   location: 'Shadman 1, Lahore, Pakistan',
   university: 'Lahore College for Women University',
-  github: 'https://github.com/AnberAziz',
-  githubHandle: 'github.com/AnberAziz',
+  github: 'https://github.com/anberaziz5',
+  githubHandle: 'https://github.com/anberaziz5',
   linkedin: 'https://linkedin.com/in/anber-aziz-70b028266',
   linkedinHandle: 'linkedin.com/in/anber-aziz-70b028266',
   resumeUrl: '/anber_aziz_cv.pdf',
@@ -74,7 +74,7 @@ export const projects = [
     description:
       'A network security monitoring system built as my Final Year Project — combining real-time traffic analysis, intrusion alerting, and a web dashboard to give administrators visibility into network health and threats, drawing on my background in network infrastructure and CCTV/security systems.',
     tech: ['MERN Stack', 'React', 'Node.js', 'Express', 'MongoDB', 'Network Security'],
-    github: 'https://github.com/AnberAziz',
+    github: 'https://github.com/anberaziz5',
     demo: '#',
     featured: true,
   },
@@ -85,7 +85,7 @@ export const projects = [
     description:
       'Developed and maintained frontend and backend components of a live e-commerce platform during my internship. Improved load times through image compression and caching, fixed cross-browser issues, and implemented SEO best practices that increased organic traffic.',
     tech: ['JavaScript', 'HTML', 'CSS', 'SEO', 'Performance Optimisation'],
-    github: 'https://github.com/AnberAziz',
+    github: 'https://github.com/anberaziz5',
     demo: '#',
     featured: true,
   },
@@ -96,7 +96,7 @@ export const projects = [
     description:
       'Supported installation, configuration, and maintenance of network infrastructure serving 230+ students and staff, alongside monitoring campus-wide CCTV surveillance systems and resolving technical faults to maintain uninterrupted security operations.',
     tech: ['Network Administration', 'CCTV Systems', 'Troubleshooting'],
-    github: 'https://github.com/AnberAziz',
+    github: 'https://github.com/anberaziz5',
     demo: '#',
     featured: false,
   },

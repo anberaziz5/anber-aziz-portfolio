@@ -52,10 +52,10 @@ export default function Contact() {
 
   const contactItems = [
     { icon: HiOutlineMail, label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-    { icon: HiOutlinePhone, label: 'Phone', value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, '')}` },
-    { icon: HiOutlineLocationMarker, label: 'Location', value: profile.location, href: null },
+    { icon: HiOutlinePhone, label: 'Phone', value: profile.phone, href: profile.phone ? `tel:${profile.phone.replace(/\s/g, '')}` : null },
     { icon: FaGithub, label: 'GitHub', value: profile.githubHandle, href: profile.github },
     { icon: FaLinkedin, label: 'LinkedIn', value: profile.linkedinHandle, href: profile.linkedin },
+    { icon: HiOutlineLocationMarker, label: 'Location', value: profile.location, href: null },
   ]
 
   return (
@@ -75,26 +75,30 @@ export default function Contact() {
               Have a role, project, or opportunity in mind? I'd love to hear from you — reach out directly or send a message.
             </p>
             {contactItems.map((item) => {
-              const Icon = item.icon
-              const content = (
-                <div className="glass-card rounded-xl p-4 flex items-center gap-4 hover:shadow-neon-md transition-all">
-                  <span className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(14,240,255,0.08)' }}>
-                    <Icon className="w-5 h-5 text-circuit" />
-                  </span>
-                  <div className="min-w-0">
-                    <p className="text-xs font-mono text-mist-soft uppercase tracking-wide">{item.label}</p>
-                    <p className="text-mist-bright text-sm truncate">{item.value}</p>
+              // 1. If there is no value, skip rendering this card entirely
+                if (!item.value) return null;
+                const Icon = item.icon
+                const content = (
+                  <div className="glass-card rounded-xl p-4 flex items-center gap-4 hover:shadow-neon-md transition-all">
+                    <span className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: 'rgba(14,240,255,0.08)' }}>
+                      <Icon className="w-5 h-5 text-circuit" />
+                    </span>
+                    <div className="min-w-0">
+                      <p className="text-xs font-mono text-mist-soft uppercase tracking-wide">{item.label}</p>
+                      <p className="text-mist-bright text-sm truncate">{item.value}</p>
+                    </div>
                   </div>
-                </div>
-              )
-              return item.href ? (
-                <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
-                  {content}
-                </a>
-              ) : (
-                <div key={item.label}>{content}</div>
-              )
-            })}
+                )
+                
+                // 2. Safe check to ensure item.href exists before running .startsWith()
+                return item.href ? (
+                  <a key={item.label} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+                    {content}
+                  </a>
+                ) : (
+                  <div key={item.label}>{content}</div>
+                )
+              })}
           </motion.div>
 
           <motion.form

@@ -3,7 +3,6 @@ export const profile = {
   title: 'Software Engineer & MERN Stack Developer',
   tagline: 'Building clean, performant systems — from frontend pixels to backend infrastructure.',
   email: 'anberaziz6@gmail.com',
-  phone: '+92 318 4636679',
   location: 'Shadman 1, Lahore, Pakistan',
   university: 'Lahore College for Women University',
   github: 'https://github.com/anberaziz5',

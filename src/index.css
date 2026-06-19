@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    background-color: #05070d;
+    color: #e7ecf7;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  ::selection {
+    background-color: rgba(14, 240, 255, 0.3);
+    color: #e7ecf7;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #05070d;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #0ef0ff, #3b6eff);
+    border-radius: 4px;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid #0ef0ff;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background: rgba(10, 15, 30, 0.55);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(14, 240, 255, 0.12);
+  }
+
+  .glass-card {
+    background: rgba(14, 20, 38, 0.5);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(14, 240, 255, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .glass-card:hover {
+    border-color: rgba(14, 240, 255, 0.4);
+    box-shadow: 0 0 30px rgba(14, 240, 255, 0.15);
+  }
+
+  .neon-text {
+    color: #0ef0ff;
+    text-shadow: 0 0 12px rgba(14, 240, 255, 0.6);
+  }
+
+  .neon-border {
+    border: 1px solid rgba(14, 240, 255, 0.4);
+    box-shadow: 0 0 20px rgba(14, 240, 255, 0.15), inset 0 0 20px rgba(14, 240, 255, 0.03);
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #0ef0ff;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 rounded-lg font-display font-medium text-void transition-all duration-300;
+    background: linear-gradient(135deg, #0ef0ff, #3b6eff);
+    box-shadow: 0 0 20px rgba(14, 240, 255, 0.35);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 35px rgba(14, 240, 255, 0.6);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    @apply px-6 py-3 rounded-lg font-display font-medium text-circuit border border-circuit/40 transition-all duration-300;
+    background: rgba(14, 240, 255, 0.04);
+  }
+
+  .btn-outline:hover {
+    background: rgba(14, 240, 255, 0.1);
+    border-color: rgba(14, 240, 255, 0.8);
+    box-shadow: 0 0 25px rgba(14, 240, 255, 0.25);
+  }
+}
